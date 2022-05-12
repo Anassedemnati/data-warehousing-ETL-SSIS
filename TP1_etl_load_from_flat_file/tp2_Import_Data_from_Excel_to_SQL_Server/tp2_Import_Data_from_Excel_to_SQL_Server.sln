@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "tp2_Import_Data_from_Excel_to_SQL_Server", "tp2_Import_Data_from_Excel_to_SQL_Server.dtproj", "{01E3BA2B-269F-4172-BE86-161395054B86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01E3BA2B-269F-4172-BE86-161395054B86}.Development|Default.ActiveCfg = Development
+		{01E3BA2B-269F-4172-BE86-161395054B86}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E233FE9-EA0C-425C-A600-89E568A42296}
+	EndGlobalSection
+EndGlobal

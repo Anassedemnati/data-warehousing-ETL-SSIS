@@ -1,0 +1,800 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/12/2022 2:51:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JOJBHER"
+  DTS:CreatorName="DESKTOP-JOJBHER\AnasseDemnati"
+  DTS:DTSID="{167D588F-7197-4AC3-AEFB-FE524DA254A6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{D9A56275-2E4F-4525-B768-D5E4653EA515}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Devart Oracle Connection Manager]"
+      DTS:CreationName="DevartOracle"
+      DTS:DTSID="{27801055-08EA-4CF4-934A-7EB1FBA1BB11}"
+      DTS:ObjectName="Devart Oracle Connection Manager">
+      <DTS:ObjectData>
+        <OracleConnectionManager
+          ConnectByProxy="False">
+          <ConnectionString>User Id=hr;Server=ORCL;Direct=False;Persist Security Info=True</ConnectionString>
+          <Password
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAioijTn0T4keofhj+fiGN8gAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABslsGA2RflgwjCECcB2P2FkbsbmJcp1kQdIHg1GOJJlQAAAAAOgAAAAAIAACAAAABXcxpyQj9B5Bxqq4fS596NnbGcF/oed9MO3YsYeuQWnBAAAAAFe4c0b/XbnFmB1ko7zMkgQAAAAGsV8tZR+d6IIc2tB4OBu5OzjO1iH9Br/ATkUgy13x8mSUmDgARt/JjpuDnjNJh71EYd9O69w1jSJ2ag95IfgKA</Password>
+        </OracleConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorks2016]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BDAA38BF-C447-4093-A45E-B7C289A7AA90}"
+      DTS:ObjectName="localhost.AdventureWorks2016">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorks2016;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{32FDA028-FC7E-4CCC-B8E5-F4CBA9DAE493}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              localeId="1033"
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[FIRST_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="FIRST_NAME"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[FIRST_NAME]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[LAST_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="LAST_NAME"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[LAST_NAME]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[full name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="46"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[full name]"
+                      name="full name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">#{Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[FIRST_NAME]} + " " + #{Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[LAST_NAME]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FIRST_NAME + " " + LAST_NAME</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination OLE DB sql server"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              localeId="1033"
+              name="Destination OLE DB sql server"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[OracleEmps]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination OLE DB sql server.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorks2016]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorks2016]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].Columns[SALARY]"
+                      cachedDataType="r8"
+                      cachedName="SALARY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[Salary]"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[SALARY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].Columns[fullname_dt_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="fullname_dt_str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[EmpName]"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[fullname_dt_str]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].Columns[Copie de JOB_TITLE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="Copie de JOB_TITLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[jobTitle]"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[Copie de JOB_TITLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].Columns[Copie de REGION_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copie de REGION_NAME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[Region]"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[Copie de REGION_NAME]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].Columns[Copie de COUNTRY_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Copie de COUNTRY_NAME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[Country]"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[Copie de COUNTRY_NAME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[EmpName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EmpName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[jobTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="jobTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[Salary]"
+                      dataType="cy"
+                      name="Salary" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Country" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination OLE DB sql server.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination OLE DB sql server.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB sql server.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination OLE DB sql server.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Devart Oracle Source orcs database"
+              componentClassID="Microsoft.ManagedComponentHost"
+              description="Extracts data from the Oracle database."
+              localeId="1033"
+              name="Devart Oracle Source orcs database">
+              <properties>
+                <property
+                  dataType="System.Null"
+                  name="DesignObject"
+                  typeConverter="NOTBROWSABLE" />
+                <property
+                  dataType="System.Int32"
+                  description="Number of retries to call operation."
+                  name="Retry Count">5</property>
+                <property
+                  dataType="System.Int32"
+                  description="Waiting second before next retry."
+                  name="Retry Interval">1</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data from Oracle."
+                  name="SelectStatement"
+                  UITypeEditor="Devart.SSIS.Common.Design.SourceSelectStmtEditor">SELECT FIRST_NAME,
+		LAST_NAME,
+		SALARY,
+		JOB_TITLE,
+		REGION_NAME,
+		COUNTRY_NAME
+	
+ FROM EMP_DETAILS_VIEW
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Devart.SSIS.Oracle.OracleSource</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Connections[Devart Oracle]"
+                  connectionManagerID="Package.ConnectionManagers[Devart Oracle Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Devart Oracle Connection Manager]"
+                  description="Devart Oracle Connection Manager"
+                  name="Devart Oracle" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output]"
+                  name="Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[FIRST_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[FIRST_NAME]"
+                      length="20"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[FIRST_NAME]"
+                      name="FIRST_NAME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[LAST_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[LAST_NAME]"
+                      length="25"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[LAST_NAME]"
+                      name="LAST_NAME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[SALARY]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[SALARY]"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[SALARY]"
+                      name="SALARY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[JOB_TITLE]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[JOB_TITLE]"
+                      length="35"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[JOB_TITLE]"
+                      name="JOB_TITLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[REGION_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[REGION_NAME]"
+                      length="25"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[REGION_NAME]"
+                      name="REGION_NAME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[COUNTRY_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[COUNTRY_NAME]"
+                      length="40"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[COUNTRY_NAME]"
+                      name="COUNTRY_NAME" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[FIRST_NAME]"
+                      dataType="wstr"
+                      length="20"
+                      name="FIRST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[LAST_NAME]"
+                      dataType="wstr"
+                      length="25"
+                      name="LAST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[SALARY]"
+                      dataType="r8"
+                      name="SALARY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[JOB_TITLE]"
+                      dataType="wstr"
+                      length="35"
+                      name="JOB_TITLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[REGION_NAME]"
+                      dataType="wstr"
+                      length="25"
+                      name="REGION_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].ExternalColumns[COUNTRY_NAME]"
+                      dataType="wstr"
+                      length="40"
+                      name="COUNTRY_NAME" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\full name convertion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              localeId="1033"
+              name="full name convertion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\full name convertion.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Inputs[Entrée de conversion de données].Columns[full name]"
+                      cachedDataType="wstr"
+                      cachedLength="46"
+                      cachedName="full name"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[full name]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Inputs[Entrée de conversion de données].Columns[JOB_TITLE]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="JOB_TITLE"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[JOB_TITLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Inputs[Entrée de conversion de données].Columns[REGION_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="REGION_NAME"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[REGION_NAME]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Inputs[Entrée de conversion de données].Columns[COUNTRY_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="COUNTRY_NAME"
+                      lineageId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[COUNTRY_NAME]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\Tâche de flux de données\full name convertion.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[fullname_dt_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[fullname_dt_str]"
+                      name="fullname_dt_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[full name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[Copie de JOB_TITLE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="35"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[Copie de JOB_TITLE]"
+                      name="Copie de JOB_TITLE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[JOB_TITLE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[Copie de REGION_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[Copie de REGION_NAME]"
+                      name="Copie de REGION_NAME"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[REGION_NAME]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[Copie de COUNTRY_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données].Columns[Copie de COUNTRY_NAME]"
+                      name="Copie de COUNTRY_NAME"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output].Columns[COUNTRY_NAME]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\Tâche de flux de données\full name convertion.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+              endId="Package\Tâche de flux de données\full name convertion.Inputs[Entrée de conversion de données]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de conversion de données]"
+              endId="Package\Tâche de flux de données\Destination OLE DB sql server.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\Tâche de flux de données\full name convertion.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Source Output]"
+              endId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              name="Source Output"
+              startId="Package\Tâche de flux de données\Devart Oracle Source orcs database.Outputs[Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="338,87" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="256,42"
+          Id="Package\Tâche de flux de données\Devart Oracle Source orcs database"
+          TopLeft="252,111" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Tâche de flux de données\Colonne dérivée"
+          TopLeft="255,201" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Source Output]"
+          TopLeft="380,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.5,48"
+              Start="0,0"
+              End="-45.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-41.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.5,24"
+                    Point2="-45.5,24"
+                    Point3="-45.5,28" />
+                  <mssgle:LineSegment
+                    End="-45.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Tâche de flux de données\full name convertion"
+          TopLeft="265,304" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+          TopLeft="334.5,243">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19,61"
+              Start="0,0"
+              End="19,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="15,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,30.5"
+                    Point2="19,30.5"
+                    Point3="19,34.5" />
+                  <mssgle:LineSegment
+                    End="19,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="228,42"
+          Id="Package\Tâche de flux de données\Destination OLE DB sql server"
+          TopLeft="255,395" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de conversion de données]"
+          TopLeft="353.5,346">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.5,49"
+              Start="0,0"
+              End="15.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="11.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5,24.5"
+                    Point2="15.5,24.5"
+                    Point3="15.5,28.5" />
+                  <mssgle:LineSegment
+                    End="15.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination OLE DB sql server">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

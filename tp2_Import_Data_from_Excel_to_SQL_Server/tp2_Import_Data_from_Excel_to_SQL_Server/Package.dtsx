@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{392FDF26-08D8-444B-8906-1E5D869D2BC5}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{AB7B358C-59A2-49DA-B9ED-8CF99A4D18E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -630,35 +630,23 @@
           Id="Package\import data\Purchase data workbook"
           TopLeft="166,81" />
         <NodeLayout
-          Size="153,42"
+          Size="200,42"
           Id="Package\import data\remove null val"
           TopLeft="172,177" />
         <EdgeLayout
           Id="Package\import data.Paths[Sortie de source Excel]"
-          TopLeft="266,123">
+          TopLeft="269,123">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-17.5,54"
+              EndConnector="0,54"
               Start="0,0"
-              End="-17.5,46.5">
+              End="0,46.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23"
-                    Point2="0,27"
-                    Point3="-4,27" />
-                  <mssgle:LineSegment
-                    End="-13.5,27" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13.5,27"
-                    Point2="-17.5,27"
-                    Point3="-17.5,31" />
-                  <mssgle:LineSegment
-                    End="-17.5,46.5" />
+                    End="0,46.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -668,52 +656,40 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="177,42"
+          Size="200,42"
           Id="Package\import data\Destination OLE DB"
           TopLeft="168,338" />
         <NodeLayout
-          Size="195,42"
+          Size="200,42"
           Id="Package\import data\Conversion de données"
           TopLeft="165,252" />
         <EdgeLayout
           Id="Package\import data.Paths[ok data]"
-          TopLeft="248.5,219">
+          TopLeft="268.5,219">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14,33"
+              EndConnector="0,33"
               Start="0,0"
-              End="14,25.5">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.5"
-                    Point2="0,16.5"
-                    Point3="4,16.5" />
-                  <mssgle:LineSegment
-                    End="10,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10,16.5"
-                    Point2="14,16.5"
-                    Point3="14,20.5" />
-                  <mssgle:LineSegment
-                    End="14,25.5" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-10.0028515625,21.5,34.005703125,9.7490234375"
+              BoundingBox="-17.0028515625,7.87548828125,34.005703125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\import data.Paths[Sortie de conversion de données]"
-          TopLeft="259.5,294">
+          TopLeft="266.5,294">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
